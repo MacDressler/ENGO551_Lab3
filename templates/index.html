@@ -3,14 +3,22 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Map Page</title>
+    <title>Home</title>
     <!-- Include Leaflet CSS and JS -->
     <link rel="stylesheet" href="https://unpkg.com/leaflet/dist/leaflet.css" />
     <script src="https://unpkg.com/leaflet/dist/leaflet.js"></script>
     <!-- Set the map container size -->
     <style>
         #map {
-            height: 400px;
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            height: 600px;
+            width: 800px;
+        }
+        h1 {
+        text-align: center;
         }
     </style>
 </head>
@@ -22,7 +30,7 @@
 
     <script>
         // Initialize the map
-        var map = L.map('map').setView([51.505, -0.09], 13);
+        var map = L.map('map').setView([51.0447, -114.0719], 10);
 
         // Add a tile layer (OpenStreetMap)
         L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
@@ -30,9 +38,7 @@
         }).addTo(map);
 
         // Add a marker to the map
-        L.marker([51.0447, -114.0719]).addTo(map)
-            .bindPopup('Calgary.')
-            .openPopup();
+        
     </script>
 </body>
 </html>
