@@ -9,21 +9,51 @@
     <script src="https://unpkg.com/leaflet/dist/leaflet.js"></script>
     <!-- Set the map container size -->
     <style>
+         body {
+            background-color: #f8f9fa;
+            margin-bottom: 50px; /* Ensure space at the bottom for the map */
+        }
         #map {
             position: absolute;
-            top: 50%;
+            bottom: 0;
             left: 50%;
-            transform: translate(-50%, -50%);
+            transform: translateX(-50%);
             height: 600px;
             width: 800px;
         }
         h1 {
         text-align: center;
         }
+        .form-group {
+            margin-bottom: 15px;
+        }
+        .search-form {
+            max-width: 400px;
+            margin: 0 auto;
+            background-color: #ffffff;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        }
     </style>
 </head>
 <body>
     <h1>Building Permits in Calgary</h1>
+
+    <!-- Search form -->
+    <div class="search-form">
+        <form id="searchForm" method="POST" action="/search">
+            <div class="form-group">
+                <label for="start_date">Start Date:</label>
+                <input type="text" class="form-control" id="start_date" name="start_date" placeholder="YYYY-MM-DD" required>
+            </div>
+            <div class="form-group">
+                <label for="end_date">End Date:</label>
+                <input type="text" class="form-control" id="end_date" name="end_date" placeholder="YYYY-MM-DD" required>
+            </div>
+            <button type="submit" class="btn btn-primary btn-block">Search</button>
+        </form>
+    </div>
     
     <!-- Map container -->
     <div id="map"></div>
@@ -40,5 +70,6 @@
         // Add a marker to the map
         
     </script>
+     
 </body>
 </html>
