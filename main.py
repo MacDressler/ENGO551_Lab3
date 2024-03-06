@@ -37,9 +37,12 @@ def search():
             permit = str(data1.get('permitnum'))
             date = str(data1.get('issueddate'))
             name = data1.get('contractorname')
+            com = data1.get('communityname')
+            work = data1.get('workclassgroup')
+            org = data1.get('originaladdress')
             type = data1.get('permittype')
             if latitude and longitude:
-                dictionary.append({"latitude": latitude, "longitude": longitude, "permit_number":permit, "date":date}) #'name': name, 'type':type})
+                dictionary.append({"latitude": latitude, "longitude": longitude, "permit_number":permit, "date":date, 'name': name, 'type':type, 'com':com, 'work':work, 'org':org})
                 #print(dictionary)
     
     # Process the start_date and end_date as needed for your API request
