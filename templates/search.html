@@ -7,6 +7,7 @@
     <!-- Include Leaflet CSS and JS -->
     <link rel="stylesheet" href="https://unpkg.com/leaflet/dist/leaflet.css" />
     
+
     <script src="https://unpkg.com/leaflet/dist/leaflet.js"></script>
     <!-- Set the map container size -->
     <style>
@@ -61,7 +62,13 @@
     <script src="https://unpkg.com/leaflet/dist/leaflet.js"></script>
     <script>
         document.addEventListener("DOMContentLoaded", function () {
-            // Initialize the map
+        // Your for loop and other JavaScript code here
+
+
+
+        var permitData = {{ permit_data|tojson }};
+
+
             var map = L.map('map').setView([51.0447, -114.0719], 10);
                 // Add a tile layer (OpenStreetMap)
                 L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
@@ -69,7 +76,20 @@
                     }).addTo(map);
 
 
-           
+                        
+            // Plot markers on the map based on permit data
+            for (var i = 0; i < permitData.length; i++) {
+                console.log("Processing permit data:", permitData[i]);
+                var permit = permitData[i];
+                console.log("current permit", permit);
+                console.log("Latitude:", permit.latitude);
+                console.log("Longitude:", permit.longitude);
+                L.marker([permit.latitude, permit.longitude])
+                    .addTo(map)
+                    .bindPopup('Permit Number: ' + permit.permit_number + '<br>Date: ' + permit.date);
+                console.log('permit marked')
+            }
+        
             
         });
     </script>
