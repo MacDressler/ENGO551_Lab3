@@ -1,6 +1,7 @@
 # ENGO551_Lab3
 This is my submission for lab 3 in ENGO551
 
+I am sorry for the late submission. I honestly spent a week messing around, trying to get my data to show. I learned alot about troubleshooting in the web browser, using F12. I also learned alot about troubleshooting javascript in html, combining javascript and html and other things.
 
 
 I will use this list here to keep track of all of my different ChatGPT prompts.
@@ -11,3 +12,6 @@ I will use this list here to keep track of all of my different ChatGPT prompts.
 - can you please centre the search, and make the whole page look nicer?
 - can you make it so that the map is always close to the bottom of the page on its bottom edge?
 - now the map is in the bottom left corner of the page. Can you make it centred horizontally at the bottom of the page?
+- how can I round a float variable to 5 decimal places
+- how can I fix this error? ypeError: L.markerClusterGroup is not a function
+    at HTMLDocument.<anonymous>
