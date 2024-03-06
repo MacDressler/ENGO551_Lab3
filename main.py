@@ -30,15 +30,16 @@ def search():
             #print(item)
             data = item['geometry']
             #print(data)
-            latitude = data.get('coordinates')[0]
-            longitude = data.get('coordinates')[1]  
+            latitude = round(data.get('coordinates')[0], 4)
+            print(latitude)
+            longitude = round(data.get('coordinates')[1], 4)
             data1 = item['properties']
             permit = str(data1.get('permitnum'))
             date = str(data1.get('issueddate'))
             name = data1.get('contractorname')
             type = data1.get('permittype')
             if latitude and longitude:
-                dictionary.append({"latitude": latitude, "longitude": longitude, "permit":permit, "date":date}) #'name': name, 'type':type})
+                dictionary.append({"latitude": latitude, "longitude": longitude, "permit_number":permit, "date":date}) #'name': name, 'type':type})
                 #print(dictionary)
     
     # Process the start_date and end_date as needed for your API request

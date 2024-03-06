@@ -62,11 +62,11 @@
     <script src="https://unpkg.com/leaflet/dist/leaflet.js"></script>
     <script>
         document.addEventListener("DOMContentLoaded", function () {
-        // Your for loop and other JavaScript code here
+        
 
 
 
-        var permitData = {{ permit_data|tojson }};
+            var permitData = {{ permit_data|tojson }};
 
 
             var map = L.map('map').setView([51.0447, -114.0719], 10);
@@ -79,18 +79,45 @@
                         
             // Plot markers on the map based on permit data
             for (var i = 0; i < permitData.length; i++) {
-                console.log("Processing permit data:", permitData[i]);
+            var permit = permitData[i];
+
+            // Create and add markers to the map
+            L.marker([permit.longitude, permit.latitude])
+                .addTo(map)
+                .bindPopup('Permit Number: ' + permit.permit_number + '<br>Date: ' + permit.date);
+        }
+
+            var marker = L.marker([51.0447, -114.0719]).addTo(map).bindPopup('Hello, this is a marker!');
+            /*var geoJSONData = {
+                type: "FeatureCollection",
+                features: []
+            };
+
+            for (var i = 0; i < permitData.length; i++) {
                 var permit = permitData[i];
                 console.log("current permit", permit);
-                console.log("Latitude:", permit.latitude);
-                console.log("Longitude:", permit.longitude);
-                L.marker([permit.latitude, permit.longitude])
-                    .addTo(map)
-                    .bindPopup('Permit Number: ' + permit.permit_number + '<br>Date: ' + permit.date);
-                console.log('permit marked')
+                // Add features to the GeoJSON data
+                geoJSONData.features.push({
+                    type: "Feature",
+                    properties: {
+                        permitNumber: permit.permit_number,
+                        date: permit.date
+                    },
+                    geometry: {
+                        type: "Point",
+                        coordinates: [permit.longitude, permit.latitude]
+                    }
+                });
             }
-        
-            
+
+            // Add GeoJSON layer to the map
+            L.geoJSON(geoJSONData, {
+                onEachFeature: function (feature, layer) {
+                    layer.bindPopup('Permit Number: ' + feature.properties.permitNumber + '<br>Date: ' + feature.properties.date);
+                }
+            }).addTo(map);*/
+                    
+                        
         });
     </script>
     
