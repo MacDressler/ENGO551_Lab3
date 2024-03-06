@@ -15,3 +15,7 @@ I will use this list here to keep track of all of my different ChatGPT prompts.
 - how can I round a float variable to 5 decimal places
 - how can I fix this error? ypeError: L.markerClusterGroup is not a function
     at HTMLDocument.<anonymous>
+
+  I spent forever trying to get my pins to show, and then I zoomed out and found out that I had mixed up lat and long.
+
+  ![Screenshot 2024-03-06 152225](https://github.com/MacDressler/ENGO551_Lab3/assets/72952297/2cdffd5b-0188-41a3-81d6-58a2575f6b2d)
